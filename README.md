@@ -22,7 +22,8 @@ OpenSSL support is disabled. mingw-w64 is the only dependency.
     
     ./autogen.sh
     
-    ./configure --prefix='' --host=i686-w64-mingw32 --disable-shared --disable-openssl --disable-samples
+    ./configure --prefix='' --host=i686-w64-mingw32 --disable-shared \
+                --disable-openssl --disable-samples  --disable-libevent-regress
     
     make -j3
     
