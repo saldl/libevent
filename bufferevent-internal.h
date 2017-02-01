@@ -228,6 +228,8 @@ struct bufferevent_private {
 		struct sockaddr_in6 in6;
 		struct sockaddr_in in;
 	} conn_address;
+
+	struct evdns_getaddrinfo_request *dns_request;
 };
 
 /** Possible operations for a control callback. */
@@ -412,6 +414,7 @@ void bufferevent_init_generic_timeout_cbs_(struct bufferevent *bev);
  * we delete it.)  Call this from anything that changes the timeout values,
  * that enabled EV_READ or EV_WRITE, or that disables EV_READ or EV_WRITE. */
 int bufferevent_generic_adj_timeouts_(struct bufferevent *bev);
+int bufferevent_generic_adj_existing_timeouts_(struct bufferevent *bev);
 
 enum bufferevent_options bufferevent_get_options_(struct bufferevent *bev);
 
